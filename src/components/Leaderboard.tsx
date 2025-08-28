@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { SnapserManager, LeaderboardEntry } from '@/services/TODO_Update_SnapserManager';
+import { SnapserManager, LeaderboardEntry } from '@/services/SnapserManager';
 
 const Leaderboard: React.FC = () => {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { SnapserManager, User } from '@/services/TODO_Update_SnapserManager';
+import { SnapserManager, User } from '@/services/SnapserManager';
 
 interface Position {
   x: number;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import LoginForm from '@/components/LoginForm';
 import CarRacingGame from '@/components/CarRacingGame';
 import Leaderboard from '@/components/Leaderboard';
-import { User } from '@/services/TODO_Update_SnapserManager';
+import { User } from '@/services/SnapserManager';
 
 const Index = () => {
   const [user, setUser] = useState<User | null>(null);
