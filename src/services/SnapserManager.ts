@@ -1,4 +1,3 @@
-
 // SnapserManager.ts - Backend integration stubs
 // TODO: Implement actual backend connections
 

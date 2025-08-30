@@ -23,49 +23,61 @@ import {
 /**
  * 
  * @export
- * @interface AuthDiscordLoginRequest
+ * @interface AuthXLoginRequest
  */
-export interface AuthDiscordLoginRequest {
+export interface AuthXLoginRequest {
     /**
-     * Discord access token generated on the client. One of code or access_token is required
+     * X access token generated on the client. One of code or access_token is required
      * @type {string}
-     * @memberof AuthDiscordLoginRequest
+     * @memberof AuthXLoginRequest
      */
     accessToken?: string;
     /**
-     * Discord code generated on the client. One of code or access_token is required
+     * X code generated on the client. One of code or access_token is required
      * @type {string}
-     * @memberof AuthDiscordLoginRequest
+     * @memberof AuthXLoginRequest
      */
     code?: string;
     /**
+     * X code verifier generated on the client
+     * @type {string}
+     * @memberof AuthXLoginRequest
+     */
+    codeVerifier?: string;
+    /**
      * Whether to create a user, if it does not exist
      * @type {boolean}
-     * @memberof AuthDiscordLoginRequest
+     * @memberof AuthXLoginRequest
      */
     createUser?: boolean;
     /**
      * 
      * @type {AuthLoginMetadata}
-     * @memberof AuthDiscordLoginRequest
+     * @memberof AuthXLoginRequest
      */
     loginMetadata?: AuthLoginMetadata;
+    /**
+     * redirect url for client
+     * @type {string}
+     * @memberof AuthXLoginRequest
+     */
+    redirectUri?: string;
 }
 
 /**
- * Check if a given object implements the AuthDiscordLoginRequest interface.
+ * Check if a given object implements the AuthXLoginRequest interface.
  */
-export function instanceOfAuthDiscordLoginRequest(value: object): boolean {
+export function instanceOfAuthXLoginRequest(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function AuthDiscordLoginRequestFromJSON(json: any): AuthDiscordLoginRequest {
-    return AuthDiscordLoginRequestFromJSONTyped(json, false);
+export function AuthXLoginRequestFromJSON(json: any): AuthXLoginRequest {
+    return AuthXLoginRequestFromJSONTyped(json, false);
 }
 
-export function AuthDiscordLoginRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthDiscordLoginRequest {
+export function AuthXLoginRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthXLoginRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -73,12 +85,14 @@ export function AuthDiscordLoginRequestFromJSONTyped(json: any, ignoreDiscrimina
         
         'accessToken': !exists(json, 'access_token') ? undefined : json['access_token'],
         'code': !exists(json, 'code') ? undefined : json['code'],
+        'codeVerifier': !exists(json, 'code_verifier') ? undefined : json['code_verifier'],
         'createUser': !exists(json, 'create_user') ? undefined : json['create_user'],
         'loginMetadata': !exists(json, 'login_metadata') ? undefined : AuthLoginMetadataFromJSON(json['login_metadata']),
+        'redirectUri': !exists(json, 'redirect_uri') ? undefined : json['redirect_uri'],
     };
 }
 
-export function AuthDiscordLoginRequestToJSON(value?: AuthDiscordLoginRequest | null): any {
+export function AuthXLoginRequestToJSON(value?: AuthXLoginRequest | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -89,8 +103,10 @@ export function AuthDiscordLoginRequestToJSON(value?: AuthDiscordLoginRequest | 
         
         'access_token': value.accessToken,
         'code': value.code,
+        'code_verifier': value.codeVerifier,
         'create_user': value.createUser,
         'login_metadata': AuthLoginMetadataToJSON(value.loginMetadata),
+        'redirect_uri': value.redirectUri,
     };
 }
 

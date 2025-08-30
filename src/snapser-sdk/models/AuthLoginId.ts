@@ -23,42 +23,48 @@ import {
 /**
  * 
  * @export
- * @interface DisassociateLoginRequest
+ * @interface AuthLoginId
  */
-export interface DisassociateLoginRequest {
+export interface AuthLoginId {
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthLoginId
+     */
+    id?: string;
     /**
      * 
      * @type {AuthLoginTypeType}
-     * @memberof DisassociateLoginRequest
+     * @memberof AuthLoginId
      */
-    loginType: AuthLoginTypeType;
+    type?: AuthLoginTypeType;
 }
 
 /**
- * Check if a given object implements the DisassociateLoginRequest interface.
+ * Check if a given object implements the AuthLoginId interface.
  */
-export function instanceOfDisassociateLoginRequest(value: object): boolean {
+export function instanceOfAuthLoginId(value: object): boolean {
     let isInstance = true;
-    isInstance = isInstance && "loginType" in value;
 
     return isInstance;
 }
 
-export function DisassociateLoginRequestFromJSON(json: any): DisassociateLoginRequest {
-    return DisassociateLoginRequestFromJSONTyped(json, false);
+export function AuthLoginIdFromJSON(json: any): AuthLoginId {
+    return AuthLoginIdFromJSONTyped(json, false);
 }
 
-export function DisassociateLoginRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): DisassociateLoginRequest {
+export function AuthLoginIdFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthLoginId {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'loginType': AuthLoginTypeTypeFromJSON(json['login_type']),
+        'id': !exists(json, 'id') ? undefined : json['id'],
+        'type': !exists(json, 'type') ? undefined : AuthLoginTypeTypeFromJSON(json['type']),
     };
 }
 
-export function DisassociateLoginRequestToJSON(value?: DisassociateLoginRequest | null): any {
+export function AuthLoginIdToJSON(value?: AuthLoginId | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -67,7 +73,8 @@ export function DisassociateLoginRequestToJSON(value?: DisassociateLoginRequest 
     }
     return {
         
-        'login_type': AuthLoginTypeTypeToJSON(value.loginType),
+        'id': value.id,
+        'type': AuthLoginTypeTypeToJSON(value.type),
     };
 }
 

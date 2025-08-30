@@ -2,25 +2,23 @@
 //   AuthServiceApi,
 //   LeaderboardsServiceApi,
 //   StorageServiceApi,
-//   UsernamePasswordLoginRequest,
-//   GetScoresRequest,
-//   IncrementScoreOperationRequest,
-//   GetJsonBlobRequest,
-//   ReplaceJsonBlobRequest
+//   AuthUserUsernamePasswordLoginRequest,
+//   LeaderboardsUserGetScoresRequest,
+//   LeaderboardsUserIncrementScoreRequest,
+//   StorageUserGetJsonBlobRequest,
+//   StorageUserReplaceJsonBlobRequest
 // } from '@/snapser-sdk/apis';
 
 // import {
 //   AuthUsernamePasswordLoginRequest,
 //   AuthUsernamePasswordLoginResponse,
 //   LeaderboardsGetScoresResponse,
-//   LeaderboardsIncrementScoreResponse,
 //   IncrementScoreRequest,
 //   StorageGetJsonBlobResponse,
-//   StorageReplaceJsonBlobResponse,
-//   StorageServiceReplaceJsonBlobBody,
 //   LeaderboardsGetScoresRequestRangeEnum,
 //   StorageGetJsonBlobRequestAccessTypeEnum,
-//   StorageReplaceJsonBlobRequestAccessTypeEnum
+//   StorageReplaceJsonBlobRequestAccessTypeEnum,
+//   ReplaceJsonBlobRequest,
 // } from '@/snapser-sdk/models';
 
 // export interface User {
@@ -53,11 +51,11 @@
 //         createUser: true
 //       };
 
-//       const request: UsernamePasswordLoginRequest = {
+//       const request: AuthUserUsernamePasswordLoginRequest = {
 //         body: loginBody
 //       };
 
-//       const response: AuthUsernamePasswordLoginResponse = await this.authApi.usernamePasswordLogin(request);
+//       const response: AuthUsernamePasswordLoginResponse = await this.authApi.authUserUsernamePasswordLogin(request);
 
 //       if (response.user) {
 //         this.sessionToken = response.user.sessionToken || null;
@@ -82,14 +80,14 @@
 //     }
 
 //     try {
-//       const request: GetScoresRequest = {
+//       const request: LeaderboardsUserGetScoresRequest = {
 //         leaderboardName: 'laps_completed',
 //         range: LeaderboardsGetScoresRequestRangeEnum.Top,
 //         count: 100,
 //         token: this.sessionToken
 //       };
 
-//       const response: LeaderboardsGetScoresResponse = await this.leaderboardsApi.getScores(request);
+//       const response: LeaderboardsGetScoresResponse = await this.leaderboardsApi.leaderboardsUserGetScores(request);
 
 //       return response.userScores?.map(score => ({
 //         userId: score.userId || '',
@@ -114,14 +112,14 @@
 //         delta: lapsCompleted
 //       };
 
-//       const request: IncrementScoreOperationRequest = {
+//       const request: LeaderboardsUserIncrementScoreRequest = {
 //         leaderboardName: 'laps_completed',
 //         userId: userId,
 //         token: this.sessionToken,
 //         body: incrementBody
 //       };
 
-//       await this.leaderboardsApi.incrementScore(request);
+//       await this.leaderboardsApi.leaderboardsUserIncrementScore(request);
 //     } catch (error) {
 //       console.error('Failed to save laps completed:', error);
 //     }
@@ -137,20 +135,20 @@
 //     try {
 //       const userData = { fastestThreeLapTime: timeInSeconds };
 
-//       const replaceBody: StorageServiceReplaceJsonBlobBody = {
+//       const replaceBody: ReplaceJsonBlobRequest = {
 //         value: userData,
 //         create: true
 //       };
 
-//       const request: ReplaceJsonBlobRequest = {
+//       const request: StorageUserReplaceJsonBlobRequest = {
 //         ownerId: userId,
-//         accessType: StorageReplaceJsonBlobRequestAccessTypeEnum.Private,
+//         accessType: StorageReplaceJsonBlobRequestAccessTypeEnum.Protected,
 //         jsonBlobKey: 'user_data',
 //         token: this.sessionToken,
 //         body: replaceBody
 //       };
 
-//       await this.storageApi.replaceJsonBlob(request);
+//       await this.storageApi.storageUserReplaceJsonBlob(request);
 //     } catch (error) {
 //       console.error('Failed to save fastest time:', error);
 //     }
@@ -164,14 +162,14 @@
 //     }
 
 //     try {
-//       const request: GetJsonBlobRequest = {
+//       const request: StorageUserGetJsonBlobRequest = {
 //         ownerId: userId,
-//         accessType: StorageGetJsonBlobRequestAccessTypeEnum.Private,
+//         accessType: StorageGetJsonBlobRequestAccessTypeEnum.Protected,
 //         jsonBlobKey: 'user_data',
 //         token: this.sessionToken
 //       };
 
-//       const response: StorageGetJsonBlobResponse = await this.storageApi.getJsonBlob(request);
+//       const response: StorageGetJsonBlobResponse = await this.storageApi.storageUserGetJsonBlob(request);
 
 //       return (response.value as UserData) || {};
 //     } catch (error) {

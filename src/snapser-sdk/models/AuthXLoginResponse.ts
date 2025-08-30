@@ -23,31 +23,31 @@ import {
 /**
  * 
  * @export
- * @interface AuthGoogleLoginResponse
+ * @interface AuthXLoginResponse
  */
-export interface AuthGoogleLoginResponse {
+export interface AuthXLoginResponse {
     /**
      * 
      * @type {AuthUser}
-     * @memberof AuthGoogleLoginResponse
+     * @memberof AuthXLoginResponse
      */
     user?: AuthUser;
 }
 
 /**
- * Check if a given object implements the AuthGoogleLoginResponse interface.
+ * Check if a given object implements the AuthXLoginResponse interface.
  */
-export function instanceOfAuthGoogleLoginResponse(value: object): boolean {
+export function instanceOfAuthXLoginResponse(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function AuthGoogleLoginResponseFromJSON(json: any): AuthGoogleLoginResponse {
-    return AuthGoogleLoginResponseFromJSONTyped(json, false);
+export function AuthXLoginResponseFromJSON(json: any): AuthXLoginResponse {
+    return AuthXLoginResponseFromJSONTyped(json, false);
 }
 
-export function AuthGoogleLoginResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthGoogleLoginResponse {
+export function AuthXLoginResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthXLoginResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -57,7 +57,7 @@ export function AuthGoogleLoginResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function AuthGoogleLoginResponseToJSON(value?: AuthGoogleLoginResponse | null): any {
+export function AuthXLoginResponseToJSON(value?: AuthXLoginResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
