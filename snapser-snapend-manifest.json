@@ -7,7 +7,7 @@
     {
       "id": "auth",
       "language": "go",
-      "version": "v0.53.2",
+      "version": "v1.0.0",
       "author_id": "snapser",
       "category": "SNAPSER",
       "subcategory": "SERVICE",
@@ -33,7 +33,7 @@
     {
       "id": "leaderboards",
       "language": "go",
-      "version": "v0.52.0",
+      "version": "v1.0.0",
       "author_id": "snapser",
       "category": "SNAPSER",
       "subcategory": "SERVICE",
@@ -53,7 +53,7 @@
     {
       "id": "storage",
       "language": "go",
-      "version": "v0.52.3",
+      "version": "v1.0.0",
       "author_id": "snapser",
       "category": "SNAPSER",
       "subcategory": "SERVICE",
